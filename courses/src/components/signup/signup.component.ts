@@ -29,19 +29,22 @@ export class SignupComponent {
     if (this.registerForm.valid) {
       this.authService.register(this.registerForm.value).subscribe({
         next: (response) => {
-          console.log('Registration successful', response);
-          if (response.token) {
+          console.log('Server response:', response); // בדיקה
+          if (response.token && response.role) {
             sessionStorage.setItem('authToken', response.token);
-            sessionStorage.setItem('userRole', this.registerForm.value.role);  
+            localStorage.setItem('userRole', response.role);
+            sessionStorage.setItem('role', response.role);
+            console.log('Role saved:', response.role); // בדיקה
+          } else {
+            console.error('Role is missing in response:', response);
           }
           this.router.navigate(['/home']);
         },
         error: (error) => {
-          this.errorMessage = 'Failed to register. Please try again.';
           console.error('Registration error:', error);
         }
       });
-    }
+    }      
   }
   
 }

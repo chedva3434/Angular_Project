@@ -20,7 +20,7 @@ export class CoursesComponent implements OnInit {
   errorMessage: any;
 
   isUserTeacher(): boolean {
-    return localStorage.getItem('userRole') === 'teacher';
+    return this.role === 'teacher';  // תוודא שהתפקיד נשמר כראוי ב-sessionStorage
   }
   
 
@@ -29,17 +29,24 @@ export class CoursesComponent implements OnInit {
 
   ngOnInit(): void {
     if (typeof window !== 'undefined' && sessionStorage) {
-      this.userId = parseInt(sessionStorage.getItem('userId') || '0');
-      this.role = sessionStorage.getItem('role') || '';  // ודא ש-role כאן 
-      if (!this.role) {
-        console.error('User role is not defined');
-      } else {
+      setTimeout(() => { // מוסיפים עיכוב קטן כדי לוודא שהערך נטען
+        this.userId = parseInt(sessionStorage.getItem('userId') || '0', 10);
+        this.role = sessionStorage.getItem('role') || '';  
+        
+        console.log('User role from sessionStorage:', this.role);
+  
+        if (!this.role) {
+          console.error('User role is not defined');
+          return;
+        }
+  
         this.getCourses();
-      }
+      }, 100); // 🔹 מוסיפים דיליי קטן של 100ms
     } else {
       console.error('sessionStorage is not available');
     }
   }
+  
   
 
   getCourses(): void {
