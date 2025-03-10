@@ -1,0 +1,89 @@
+/* סטיילינג לתמונה בצד שמאל */
+.left-section {
+  display: flex;
+  align-items: center;
+}
+
+.image-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.header-image {
+  height: 60px; /* גודל התמונה */
+  width: 110px;  /* גודל התמונה */
+  object-fit: cover;
+  margin-right: 10px; /* רווח בין התמונה לכפתורים */
+}
+
+/* כפתורים אחרי התמונה בצד שמאל */
+.buttons-container {
+  display: flex;
+  align-items: center;
+}
+
+.buttons-container button {
+  margin-right: 10px; /* רווח בין כפתורים */
+}
+
+/* רווח גמיש כדי לדחוף את הפרופיל בצד ימין */
+.spacer {
+  flex-grow: 1;
+}
+
+/* סטיילינג לפרופיל בצד ימין */
+.profile-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px; /* רווח בין הפרופיל לשאר התוכן */
+}
+
+.profile-container mat-icon {
+  font-size: 40px; /* גודל אייקון הפרופיל */
+  color: white; /* צבע אייקון פרופיל */
+  cursor: pointer; /* מצביע אכיפת לחיצה */
+}
+
+/* הוספת מסגרת תחתונה ל-mat-toolbar */
+mat-toolbar {
+  background-color: white;
+  border-bottom: 2px solid #ac335b;
+  width: 100%;
+}
+
+.link-home {
+  font-size: 18px;
+  color: #d81977;
+}
+
+.link-courses {
+  font-size: 18px;
+  color: #53b0b1;
+}
+
+.link-manage-courses {
+  font-size: 18px;
+  color:#3c7fbf; /* צבע שונה ללינק About */
+}
+
+.link-login {
+  font-size: 18px;
+  color: #7c5ca2; /* צבע שונה ללינק Login */
+}
+
+.profile-link {
+  font-size: 18px;
+  color: #8e24aa; /* צבע שונה ללינק של פרופיל */
+}
+
+.links-container a {
+  text-decoration: none;
+  padding: 0 10px; 
+  margin: 0 10px; 
+  cursor: pointer;
+}
+
+
+

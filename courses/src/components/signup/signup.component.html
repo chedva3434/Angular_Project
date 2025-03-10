@@ -1,0 +1,34 @@
+<div class="signup">
+    <h2>הרשמה</h2>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div>
+            <label for="name">שם מלא</label>
+            <input id="name" formControlName="name" type="text" required>
+        </div>
+
+        <div>
+            <label for="email">אימייל</label>
+            <input id="email" formControlName="email" type="email" required>
+        </div>
+
+        <div>
+            <label for="password">סיסמה</label>
+            <input id="password" formControlName="password" type="password" required>
+        </div>
+
+        <div>
+            <label for="role">תפקיד</label>
+            <select id="role" formControlName="role" required>
+                <option value="student">סטודנט</option>
+                <option value="teacher">מורה</option>
+                <option value="admin">מנהל</option>
+            </select>
+        </div>
+
+        <button type="submit" [disabled]="registerForm.invalid">הירשם</button>
+
+        @if (errorMessage) {
+        <p class="error">{{ errorMessage }}</p>
+        }
+    </form>
+</div>

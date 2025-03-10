@@ -1,0 +1,60 @@
+<div class="login-container">
+    <h2>התחברות למערכת</h2>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <!-- שדה אימייל -->
+        <div class="form-group">
+            <label for="email">אימייל</label>
+            <input 
+                type="email" 
+                id="email" 
+                formControlName="email" 
+                class="form-control" 
+                placeholder="הכנס אימייל"
+            />
+
+            @if (loginForm.get('email')?.invalid && loginForm.get('email')?.touched) {
+                <div class="error">
+                    @if (loginForm.get('email')?.hasError('required')) {
+                        <small>האימייל הוא שדה חובה.</small>
+                    }
+                    @if (loginForm.get('email')?.hasError('email')) {
+                        <small>הכנס אימייל תקני.</small>
+                    }
+                </div>
+            }
+        </div>
+
+        <!-- שדה סיסמה -->
+        <div class="form-group">
+            <label for="password">סיסמה</label>
+            <input 
+                type="password" 
+                id="password" 
+                formControlName="password" 
+                class="form-control" 
+                placeholder="הכנס סיסמה"
+            />
+
+            @if (loginForm.get('password')?.invalid && loginForm.get('password')?.touched) {
+                <div class="error">
+                    @if (loginForm.get('password')?.hasError('required')) {
+                        <small>הסיסמה היא שדה חובה.</small>
+                    }
+                    @if (loginForm.get('password')?.hasError('minlength')) {
+                        <small>הסיסמה חייבת להכיל לפחות 6 תווים.</small>
+                    }
+                </div>
+            }
+        </div>
+
+        <!-- כפתור התחברות -->
+        <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">התחבר</button>
+
+        <!-- לינק להרשמה -->
+        <p class="signup-text">
+            אין לך חשבון?
+            <a (click)="navigateToSignUp()" class="signup-link"> הירשם כאן</a>
+        </p>
+    </form>
+</div>

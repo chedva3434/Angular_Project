@@ -1,0 +1,14 @@
+<mat-toolbar color="primary">
+
+    <div class="image-container">
+        <img src="image/1.jpg" alt="Logo" class="header-image" />
+    </div>
+
+    <div class="links-container">
+        <a routerLink="/home" class="link-home" (click)="navigateToHome()">Home</a>
+        <a mat-button class="link-login" (click)="navigateToLogin()">Login</a>
+        <a routerLink="/courses" class="link-courses" (click)="navigateToCourses()">Courses</a>
+        <a routerLink="/add-courses" class="link-manage-courses" (click)="navigateToaddcourses()">add-courses</a> 
+    </div>
+   
+</mat-toolbar>
