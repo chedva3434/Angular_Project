@@ -3,15 +3,15 @@ import { CanActivateFn, Router } from '@angular/router';
 
 export const teacherGuard: CanActivateFn = (route, state) => {
   const router = inject(Router);
-  const role = localStorage.getItem('role');
+  const role = sessionStorage.getItem('role');
 
-  console.log('Role from localStorage:', role); // 🔹 הדפסת התפקיד לקונסול
+  console.log('Role from localStorage:', role); 
 
   if (role === 'teacher') {
-    console.log('Access granted'); // 🔹 אם מורה - אמור להיכנס
+    console.log('Access granted'); 
     return true; 
   } else {
-    console.log('Access denied, redirecting...'); // 🔹 אם לא - אמור להיחסם
+    console.log('Access denied, redirecting...'); 
     router.navigate(['/']); 
     return false; 
   }

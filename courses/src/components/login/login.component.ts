@@ -40,8 +40,8 @@ export class LoginComponent {
           sessionStorage.setItem('token', response.token);
           sessionStorage.setItem('userId', response.userId.toString());
           sessionStorage.setItem('role', response.role); // שמירת ה-role
-          localStorage.setItem('role', response.role);  // שמירת התפקיד
-          localStorage.setItem('token', response.token);  // שמירת ה-token
+          // localStorage.setItem('role', response.role);  // שמירת התפקיד
+          // localStorage.setItem('token', response.token);  // שמירת ה-token
           this.router.navigate(['/home']);
         },
         error: (error) => {

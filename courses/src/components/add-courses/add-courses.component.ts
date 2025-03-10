@@ -43,8 +43,8 @@ isEditMode = false;
   }
 
   onSubmit(): void {
-    const storedUserId = localStorage.getItem('userId');
-    const userId: string|null=localStorage.getItem('userId')
+    const storedUserId = sessionStorage .getItem('userId');
+    const userId: string|null=sessionStorage.getItem('userId')
 
 
     console.log(userId);

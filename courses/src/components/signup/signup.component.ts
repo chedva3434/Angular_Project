@@ -31,9 +31,9 @@ export class SignupComponent {
         next: (response) => {
           console.log('Server response:', response); // בדיקה
           if (response.token && response.role) {
-            localStorage.setItem('token', response.token);  // שמירת ה-token ב-localStorage
+            // localStorage.setItem('token', response.token);  
             sessionStorage.setItem('token', response.token);
-            localStorage.setItem('userRole', response.role);
+            // localStorage.setItem('userRole', response.role);
             sessionStorage.setItem('role', response.role);
             console.log('Role saved:', response.role); // בדיקה
           } else {
