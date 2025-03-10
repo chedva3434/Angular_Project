@@ -52,7 +52,7 @@ export class CoursesComponent implements OnInit {
   getCourses(): void {
     // const token = sessionStorage.getItem('token');
     if (typeof window !== 'undefined') { // בדוק אם אתה בדפדפן
-      const token = sessionStorage.getItem('token');
+      const token = sessionStorage.getItem('token') || localStorage.getItem('token');
 
       if (token) {
         this.courseservice.getCourses(token).subscribe(

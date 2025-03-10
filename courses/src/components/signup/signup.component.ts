@@ -21,7 +21,7 @@ export class SignupComponent {
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      role: ['student', Validators.required]  
+      role: ['student', Validators.required]
     });
   }
 
@@ -31,7 +31,8 @@ export class SignupComponent {
         next: (response) => {
           console.log('Server response:', response); // בדיקה
           if (response.token && response.role) {
-            sessionStorage.setItem('authToken', response.token);
+            localStorage.setItem('token', response.token);  // שמירת ה-token ב-localStorage
+            sessionStorage.setItem('token', response.token);
             localStorage.setItem('userRole', response.role);
             sessionStorage.setItem('role', response.role);
             console.log('Role saved:', response.role); // בדיקה
@@ -44,7 +45,7 @@ export class SignupComponent {
           console.error('Registration error:', error);
         }
       });
-    }      
+    }
   }
-  
+
 }
